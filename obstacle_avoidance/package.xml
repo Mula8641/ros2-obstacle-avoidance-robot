@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>obstacle_avoidance</name>
+  <version>0.1.0</version>
+  <description>Finite-state-machine obstacle avoidance for a TurtleBot3 in Gazebo.</description>
+  <maintainer email="202020144+Mula8641@users.noreply.github.com">Muhammad Ali Lari</maintainer>
+  <license>MIT</license>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <exec_depend>turtlebot3_gazebo</exec_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

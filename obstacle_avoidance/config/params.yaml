@@ -1,0 +1,16 @@
+avoidance_node:
+  ros__parameters:
+    turn_enter_m: 0.50
+    turn_exit_m: 0.80
+    backup_enter_m: 0.22
+    backup_max_s: 1.5
+    cruise_mps: 0.15
+    turn_radps: 0.8
+    backup_mps: -0.08
+    front_half_angle_deg: 30.0
+    side_angle_deg: 90.0
+    control_rate_hz: 10.0
+    # UNVERIFIED until Phase 0.6: confirm against docs/environment.md
+    scan_topic: /scan
+    cmd_topic: /cmd_vel
+    use_stamped_cmd: true
