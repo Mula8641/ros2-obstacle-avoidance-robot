@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# UNTESTED: written from PLAN.md steps 0.3/0.4 and not yet run. Verify on a real WSL2 Ubuntu 24.04.
+# Tested once on WSL2 Ubuntu 24.04 (run as root, apt route; the source-build fallback has not been exercised).
 set -euo pipefail
 
 sudo apt update
