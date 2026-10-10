@@ -12,6 +12,7 @@ from ..settings import load_settings
 from ..core.scan_sectors import compute_sectors
 from ..core.state_machine import State, next_state
 from ..core.velocity_policy import Velocity, velocity_for
+from ..core.watchdog import scan_is_stale
 
 SCAN_TIMEOUT_S = 1.0
 PARAM_NAMES = (
@@ -48,7 +49,8 @@ class AvoidanceNode(Node):
 
     def on_tick(self):
         now = self.get_clock().now()
-        stale = self.last_scan_time is None or (now - self.last_scan_time).nanoseconds / 1e9 > SCAN_TIMEOUT_S
+        since_scan = None if self.last_scan_time is None else (now - self.last_scan_time).nanoseconds / 1e9
+        stale = scan_is_stale(since_scan, SCAN_TIMEOUT_S)
         if stale:
             if not self.timed_out:
                 self.get_logger().warn("no scan received, publishing zero velocity")
