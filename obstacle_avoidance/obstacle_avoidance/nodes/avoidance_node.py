@@ -8,7 +8,7 @@ from rclpy.signals import SignalHandlerOptions
 from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import LaserScan
 
-from ..config.settings import load_settings
+from ..settings import load_settings
 from ..core.scan_sectors import compute_sectors
 from ..core.state_machine import State, next_state
 from ..core.velocity_policy import Velocity, velocity_for

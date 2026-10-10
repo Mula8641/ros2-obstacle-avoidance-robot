@@ -2,8 +2,8 @@ import math
 from dataclasses import dataclass
 from typing import Mapping
 
-from ..core.state_machine import Thresholds
-from ..core.velocity_policy import Speeds
+from .core.state_machine import Thresholds
+from .core.velocity_policy import Speeds
 
 
 @dataclass(frozen=True)

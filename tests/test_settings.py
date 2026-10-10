@@ -1,6 +1,6 @@
 import pytest
 
-from obstacle_avoidance.config.settings import load_settings
+from obstacle_avoidance.settings import load_settings
 
 PARAMS = {
     "turn_enter_m": 0.5, "turn_exit_m": 0.8, "backup_enter_m": 0.22, "backup_max_s": 1.5,

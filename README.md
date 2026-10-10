@@ -83,7 +83,7 @@ Nav2 integration, SLAM, a real TurtleBot3.
 
 ## Layout
 
-`obstacle_avoidance/` is the ROS 2 package (`core/` pure logic, `config/` settings, `utils/` logging, `nodes/` ROS wiring). `scripts/record_run.py` and `scripts/make_demo_gif.py` produced the demo. The measured environment is in [docs/environment.md](docs/environment.md).
+`obstacle_avoidance/` is the ROS 2 package (`core/` pure logic, `settings.py` parameter loading, `nodes/` ROS wiring). `scripts/record_run.py` and `scripts/make_demo_gif.py` produced the demo. The measured environment is in [docs/environment.md](docs/environment.md).
 
 ## License
 
