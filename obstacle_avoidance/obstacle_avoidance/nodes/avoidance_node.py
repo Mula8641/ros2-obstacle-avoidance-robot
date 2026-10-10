@@ -15,7 +15,7 @@ from ..core.velocity_policy import Velocity, velocity_for
 
 SCAN_TIMEOUT_S = 1.0
 PARAM_NAMES = (
-    "turn_enter_m", "turn_exit_m", "backup_enter_m", "backup_max_s",
+    "turn_enter_m", "turn_exit_m", "backup_enter_m", "backup_exit_m", "backup_max_s", "turn_min_s",
     "cruise_mps", "turn_radps", "backup_mps", "front_half_angle_deg", "side_angle_deg",
     "scan_topic", "cmd_topic", "control_rate_hz", "use_stamped_cmd",
 )

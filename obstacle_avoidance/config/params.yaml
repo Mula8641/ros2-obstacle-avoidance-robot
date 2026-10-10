@@ -3,7 +3,9 @@ avoidance_node:
     turn_enter_m: 0.50
     turn_exit_m: 0.80
     backup_enter_m: 0.22
+    backup_exit_m: 0.30
     backup_max_s: 1.5
+    turn_min_s: 1.0
     cruise_mps: 0.15
     turn_radps: 0.8
     backup_mps: -0.08
