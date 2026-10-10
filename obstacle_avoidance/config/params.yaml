@@ -10,7 +10,7 @@ avoidance_node:
     front_half_angle_deg: 30.0
     side_angle_deg: 90.0
     control_rate_hz: 10.0
-    # UNVERIFIED until Phase 0.6: confirm against docs/environment.md
+    # topic names and message type confirmed on the running simulation, see docs/environment.md
     scan_topic: /scan
     cmd_topic: /cmd_vel
     use_stamped_cmd: true

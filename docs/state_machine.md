@@ -3,15 +3,15 @@
 ```mermaid
 stateDiagram-v2
     [*] --> CRUISE
-    CRUISE --> TURN_LEFT: front < turn_enter and left >= right
-    CRUISE --> TURN_RIGHT: front < turn_enter and left < right
-    TURN_LEFT --> CRUISE: front >= turn_exit
-    TURN_RIGHT --> CRUISE: front >= turn_exit
-    CRUISE --> BACKUP: front < backup_enter
-    TURN_LEFT --> BACKUP: front < backup_enter
-    TURN_RIGHT --> BACKUP: front < backup_enter
-    BACKUP --> TURN_LEFT: (front >= turn_exit or t >= backup_max) and left >= right
-    BACKUP --> TURN_RIGHT: (front >= turn_exit or t >= backup_max) and left < right
+    CRUISE --> TURN_LEFT: front below turn_enter, left side freer
+    CRUISE --> TURN_RIGHT: front below turn_enter, right side freer
+    TURN_LEFT --> CRUISE: front at or above turn_exit
+    TURN_RIGHT --> CRUISE: front at or above turn_exit
+    CRUISE --> BACKUP: front below backup_enter
+    TURN_LEFT --> BACKUP: front below backup_enter
+    TURN_RIGHT --> BACKUP: front below backup_enter
+    BACKUP --> TURN_LEFT: clear or timed out, left side freer
+    BACKUP --> TURN_RIGHT: clear or timed out, right side freer
 ```
 
 Rules are evaluated top to bottom; the first match wins.

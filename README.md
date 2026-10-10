@@ -56,11 +56,11 @@ All values live in `obstacle_avoidance/config/params.yaml`.
 | `front_half_angle_deg` / `side_angle_deg` | 30 / 90 | sector widths |
 | `use_stamped_cmd` | true | Jazzy's TurtleBot3 bridge takes `TwistStamped` on `/cmd_vel` |
 
-The defaults from the plan were not changed during testing.
+The defaults above were not changed during testing.
 
 ## Results
 
-Three consecutive runs, 360 s of wall-clock each, `turtlebot3_world`, waffle, stock parameters, software rendering. (The plan asks for 120 s; that was too short to see any avoidance at this simulation speed, since runs of 120 s produced zero state changes.)
+Three consecutive runs, 360 s of wall-clock each, `turtlebot3_world`, waffle, stock parameters, software rendering. Shorter 120 s runs showed no state changes at this simulation speed, so they were not used for the results.
 
 | Run | Min LiDAR range | State changes | `run_monitor` | Shutdown |
 |---|---|---|---|---|
@@ -83,7 +83,7 @@ Nav2 integration, SLAM, a real TurtleBot3.
 
 ## Layout
 
-`obstacle_avoidance/` is the ROS 2 package (`core/` pure logic, `config/` settings, `utils/` logging, `nodes/` ROS wiring). `scripts/record_run.py` and `scripts/make_demo_gif.py` produced the demo. The original build plan is in [docs/PLAN.md](docs/PLAN.md) and the measured environment in [docs/environment.md](docs/environment.md).
+`obstacle_avoidance/` is the ROS 2 package (`core/` pure logic, `config/` settings, `utils/` logging, `nodes/` ROS wiring). `scripts/record_run.py` and `scripts/make_demo_gif.py` produced the demo. The measured environment is in [docs/environment.md](docs/environment.md).
 
 ## License
 
