@@ -14,7 +14,7 @@ Measured with the stock `turtlebot3_world.launch.py` running in WSL2 (`TURTLEBOT
 | `angle_increment` | 0.017493 rad (about 1 deg) |
 | `range_min` / `range_max` | 0.12 m / 3.5 m |
 | Samples per scan | 360 |
-| Scan rate | about 1.3 Hz wall-clock (nominal 5 Hz) |
+| Scan rate | about 1.1 to 1.3 Hz wall-clock (nominal 5 Hz) |
 | Other topics | `/odom`, `/imu`, `/joint_states`, `/clock`, `/tf`, camera topics |
 
 ## Notes
