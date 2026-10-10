@@ -1,6 +1,6 @@
 import math
 
-from obstacle_avoidance.core.scan_sectors import compute_sectors
+from obstacle_avoidance.core.scan_sectors import clamp_range, compute_sectors
 
 RANGE_MAX = 3.5
 FRONT = math.radians(30)
@@ -43,3 +43,22 @@ def test_samples_near_two_pi_map_to_right():
 def test_empty_sector_returns_range_max():
     s = compute_sectors([0.2] * 10, 0.0, STEP, RANGE_MAX, FRONT, SIDE)
     assert (s.left_m, s.right_m) == (RANGE_MAX, RANGE_MAX)
+
+
+def test_reading_closer_than_range_min_counts_as_range_min():
+    ranges = [0.05] + [RANGE_MAX] * 359
+    s = compute_sectors(ranges, 0.0, STEP, RANGE_MAX, FRONT, SIDE, range_min=0.12)
+    assert s.front_m == 0.12
+
+
+def test_reading_beyond_range_max_counts_as_range_max():
+    s = compute_sectors([9.0] * 360, 0.0, STEP, RANGE_MAX, FRONT, SIDE, range_min=0.12)
+    assert s.front_m == RANGE_MAX
+
+
+def test_clamp_range_cases():
+    assert clamp_range(float("inf"), 0.12, 3.5) == 3.5
+    assert clamp_range(float("nan"), 0.12, 3.5) == 3.5
+    assert clamp_range(-1.0, 0.12, 3.5) == 3.5
+    assert clamp_range(0.0, 0.12, 3.5) == 0.12
+    assert clamp_range(1.0, 0.12, 3.5) == 1.0

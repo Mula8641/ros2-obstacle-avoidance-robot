@@ -43,7 +43,7 @@ class AvoidanceNode(Node):
             self.get_logger().info(f"first scan received ({len(scan.ranges)} samples)")
         self.sectors = compute_sectors(
             scan.ranges, scan.angle_min, scan.angle_increment, scan.range_max,
-            self.settings.front_half_angle_rad, self.settings.side_angle_rad)
+            self.settings.front_half_angle_rad, self.settings.side_angle_rad, scan.range_min)
         self.last_scan_time = self.get_clock().now()
 
     def on_tick(self):

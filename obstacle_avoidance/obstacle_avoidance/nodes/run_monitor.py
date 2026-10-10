@@ -6,6 +6,8 @@ from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import LaserScan
 
+from ..core.scan_sectors import clamp_range
+
 
 class RunMonitor(Node):
     def __init__(self, scan_topic: str):
@@ -15,8 +17,8 @@ class RunMonitor(Node):
         self.create_subscription(LaserScan, scan_topic, self.on_scan, qos_profile_sensor_data)
 
     def on_scan(self, scan: LaserScan):
-        valid = [r for r in scan.ranges if scan.range_min <= r <= scan.range_max]
-        self.min_range_m = min([self.min_range_m] + valid)
+        usable = [clamp_range(r, scan.range_min, scan.range_max) for r in scan.ranges]
+        self.min_range_m = min([self.min_range_m] + usable)
         self.scan_count += 1
 
 
