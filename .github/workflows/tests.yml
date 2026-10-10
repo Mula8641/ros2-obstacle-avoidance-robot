@@ -8,5 +8,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pytest
+      - run: pip install pytest pyyaml ruff
+      - run: ruff check .
       - run: pytest -q
+  build:
+    runs-on: ubuntu-24.04
+    container: ros:jazzy
+    steps:
+      - uses: actions/checkout@v4
+      - run: apt-get update && apt-get install -y python3-colcon-common-extensions
+      - run: . /opt/ros/jazzy/setup.sh && colcon build --packages-select obstacle_avoidance
+      - run: . /opt/ros/jazzy/setup.sh && . install/setup.sh && ros2 pkg executables obstacle_avoidance

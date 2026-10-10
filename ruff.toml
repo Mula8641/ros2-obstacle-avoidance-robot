@@ -1,0 +1,5 @@
+line-length = 120
+extend-exclude = ["build", "install", "log"]
+
+[lint]
+select = ["E", "F", "W"]
